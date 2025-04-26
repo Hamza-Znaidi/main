@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <link rel="stylesheet" href="/static/styles.css">
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          <div class="logo"><b>N<span>a</span>noV<span>e</span>rs</b></div>
+          <ul>
+            <li class="active" data-section="home">
+              <i class="fa fa-compact-disc nav-icon"></i>&nbsp; &nbsp; Home
+            </li>
+            <li data-section="search">
+              <i class="fa-brands fa-searchengin"></i>&nbsp; &nbsp; Search
+            </li>
+            <li data-section="library">
+              <i class="fa-solid fa-book-open"></i>&nbsp; &nbsp; Your Library
+            </li>
+            <li data-section="lyrics">
+              <i class="fa-solid fa-file-alt"></i>&nbsp; &nbsp; Search by Lyrics
+            </li>
+            <li>
+              <a id="logout" href="/logout" class="logout-button" style="color: white;">
+                <i class="fa-solid fa-right-from-bracket"></i>&nbsp; &nbsp; Logout
+              </a>
+            </li>
+          </ul>
+        </nav>
+    
+        <!-- Main Content -->
+        <main class="main" id="main-content">
+          <!-- Content populated by JavaScript -->
+          
+        </main>
+        <!-- user info -->
+         <div class="user-info">
+          <div class="online-status">online <div class="green-dot"></div></div>
+          <div class="user-image">
+            <img src="https://as2.ftcdn.net/jpg/03/22/58/35/1000_F_322583530_OTABoRCHHJRHIwLiU64JOxVKCeMCH5FW.jpg" alt="User Image" loading="lazy" />
+
+          </div>
+          <div class="user-name"> {{ user.first_name }}</div>
+          
+         </div>
+        <!-- Audio Player -->
+        <div class="music-player">
+          <div class="album-cover">
+            <img src="{{ url_for('static', filename='images/album-cover-optimized.png') }}" id="rotatingImage" alt="Album Cover" loading="lazy" />
+            <span class="point"></span>
+          </div>
+      
+          <h2>Redemption</h2>
+          <p>Besomorph & Coopex</p>
+      
+          <audio id="song">
+            <source src="" type="audio/ogg" />
+            <source src="" type="audio/mpeg" />
+          </audio>
+      
+          <input type="range" value="0" id="progress" />
+      
+          <div class="controls">
+            <button class="backward">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="play-pause-btn">
+              <i class="fa-solid fa-play" id="controlIcon"></i>
+            </button>
+            <button class="forward">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    
+     
+      <script src="/static/player.js"></script>
+      
+    </body>
+    {% endblock %}
